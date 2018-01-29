@@ -15,9 +15,10 @@ public class Selector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-				
+		GetInput ();
 	}
 
+	// выбор объекта
 	public void SelectObject(){		
 
 		hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero, Mathf.Infinity);
@@ -30,9 +31,16 @@ public class Selector : MonoBehaviour {
 		}
 	}
 
+	// прослушивание клавиатуры и мыши
 	public void GetInput(){
 		if (Input.GetMouseButtonDown (0)) {
 			SelectObject ();
+		}
+
+		if(Input.GetMouseButton(1)){
+			Character characterScript = (Character) unitObject.GetComponent(typeof(Character));
+			characterScript.SetMoveToPosition(Camera.main.ScreenToWorldPoint (Input.mousePosition));
+			characterScript.SetAllowMove(true);
 		}
 	}
 }

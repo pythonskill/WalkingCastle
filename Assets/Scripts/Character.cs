@@ -12,6 +12,8 @@ public class Character : MonoBehaviour {
 	public float speed = 15f;
 	// Текущее местоположение выраженное в Vector2
 	public Vector2 direction;
+	// Расса
+	public string raceName;
 
 	// Use this for initialization
 	void Start () {
